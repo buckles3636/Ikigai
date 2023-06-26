@@ -21,7 +21,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Width;
 
 public class HomeViewCard extends ListItem {
 
-    public HomeViewCard(String text, String url) {
+    public HomeViewCard(String titleString, String subtitleString, String textString, String imageURL, String[] tagsList) {
         addClassNames(Background.CONTRAST_5, Display.FLEX, FlexDirection.COLUMN, AlignItems.START, Padding.MEDIUM,
                 BorderRadius.LARGE);
 
@@ -32,26 +32,28 @@ public class HomeViewCard extends ListItem {
 
         Image image = new Image();
         image.setWidth("100%");
-        image.setSrc(url);
-        image.setAlt(text);
+        image.setSrc(imageURL);
+        image.setAlt(textString);
 
         div.add(image);
 
         Span header = new Span();
         header.addClassNames(FontSize.XLARGE, FontWeight.SEMIBOLD);
-        header.setText("Title");
+        header.setText(titleString);
 
         Span subtitle = new Span();
         subtitle.addClassNames(FontSize.SMALL, TextColor.SECONDARY);
-        subtitle.setText("Card subtitle");
+        subtitle.setText(subtitleString);
 
-        Paragraph description = new Paragraph(
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.");
+        Paragraph description = new Paragraph(textString);
         description.addClassName(Margin.Vertical.MEDIUM);
 
         Span badge = new Span();
         badge.getElement().setAttribute("theme", "badge");
-        badge.setText("Label");
+
+        for (String tag : tagsList){
+                badge.setText(tag);
+        }
 
         add(div, header, subtitle, description, badge);
 
