@@ -1,7 +1,14 @@
-# Hobby House
+# Ikigai
 
-This project can be used as a starting point to create your own Vaadin application with Spring Boot.
-It contains all the necessary configuration and some placeholder files to get you started.
+Ikigai is a social media app designed to connect and engage remote workforces by facilitating the sharing of employees' passions through classes and activities.
+
+## Features
+
+- **Passion Sharing**: Employees can host classes and workshops about their passions, allowing others to participate and learn.
+- **Voluntary Engagement**: Participation is optional, ensuring employees can explore passions that resonate with them personally.
+- **Improved Employee Engagement**: Ikigai fosters a sense of community, personal growth, and connection among remote teams.
+- **Diverse Range of Activities**: From art and music to fitness and mindfulness, employees can discover and engage in various interests.
+- **Authentic Connections**: The app creates an environment that encourages genuine interactions and relationship-building.
 
 ## Running the application
 
@@ -20,7 +27,7 @@ This will build a JAR file with all the dependencies and front-end resources,
 ready to be deployed. The file can be found in the `target` folder after the build completes.
 
 Once the JAR file is built, you can run it using
-`java -jar target/hobbyhouse-1.0-SNAPSHOT.jar`
+`java -jar target/ikigai-1.0-SNAPSHOT.jar`
 
 ## Project structure
 
@@ -33,17 +40,9 @@ Once the JAR file is built, you can run it using
 
 ## Useful links
 
-- Read the documentation at [vaadin.com/docs](https://vaadin.com/docs).
-- Follow the tutorial at [vaadin.com/docs/latest/tutorial/overview](https://vaadin.com/docs/latest/tutorial/overview).
-- Create new projects at [start.vaadin.com](https://start.vaadin.com/).
-- Search UI components and their usage examples at [vaadin.com/docs/latest/components](https://vaadin.com/docs/latest/components).
-- View use case applications that demonstrate Vaadin capabilities at [vaadin.com/examples-and-demos](https://vaadin.com/examples-and-demos).
-- Build any UI without custom CSS by discovering Vaadin's set of [CSS utility classes](https://vaadin.com/docs/styling/lumo/utility-classes). 
-- Find a collection of solutions to common use cases at [cookbook.vaadin.com](https://cookbook.vaadin.com/).
-- Find add-ons at [vaadin.com/directory](https://vaadin.com/directory).
-- Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/vaadin) or join our [Discord channel](https://discord.gg/MYFq5RTbBn).
-- Report issues, create pull requests in [GitHub](https://github.com/vaadin).
-
+- Vaddin Documentation at [vaadin.com/docs](https://vaadin.com/docs).
+- Apache Maven Documentation at [maven.apache.org/guides/index](https://maven.apache.org/guides/index.html).
+- Spring Framework Documentation at [docs.spring.io/spring-framework/reference/](https://docs.spring.io/spring-framework/reference/). 
 
 ## Deploying using Docker
 
@@ -51,11 +50,18 @@ To build the Dockerized version of the project, run
 
 ```
 mvn clean package -Pproduction
-docker build . -t hobbyhouse:latest
+docker build . -t ikigai:latest
 ```
 
 Once the Docker image is correctly built, you can test it locally using
 
 ```
-docker run -p 8080:8080 hobbyhouse:latest
+docker run -p 8080:8080 ikigai:latest
 ```
+## License
+
+This project is licensed under the [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/). Feel free to use and modify the code as per the license terms. Comercial use is not allowed.
+
+## Contact
+
+If you have any questions or inquiries, please contact me at peterbuckley3636@gmail.com.
