@@ -54,7 +54,7 @@ public class HomeView extends Main implements HasComponents, HasStyle {
         VerticalLayout headerContainer = new VerticalLayout();
         H2 header = new H2("Lets See What Your Co-Workers are Passionate About!");
         header.addClassNames(Margin.Bottom.NONE, Margin.Top.XLARGE, FontSize.XXXLARGE);
-        Paragraph description = new Paragraph(RandomLineSelector.selectRandomLineFromFile("Assets/MotivationalQoutes.txt"));
+        Paragraph description = new Paragraph(RandomLineSelector.selectRandomLineFromFile("src/main/resources/MotivationalQoutes.txt"));
         description.addClassNames(Margin.Bottom.XLARGE, Margin.Top.NONE, TextColor.SECONDARY);
         headerContainer.add(header, description);
 
