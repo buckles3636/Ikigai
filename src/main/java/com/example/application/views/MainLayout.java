@@ -1,7 +1,6 @@
 package com.example.application.views;
 
 import com.example.application.views.home.HomeView;
-import com.example.application.views.usersettings.UserSettingsView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -39,7 +38,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void addDrawerContent() {
-        H1 appName = new H1("Hobby House");
+        H1 appName = new H1("Ikigai");
         appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
         Header header = new Header(appName);
 
@@ -52,7 +51,7 @@ public class MainLayout extends AppLayout {
         SideNav nav = new SideNav();
 
         nav.addItem(new SideNavItem("Home", HomeView.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
-        nav.addItem(new SideNavItem("User Settings", UserSettingsView.class, LineAwesomeIcon.USER.create()));
+    
 
         return nav;
     }

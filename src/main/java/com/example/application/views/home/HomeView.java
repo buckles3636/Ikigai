@@ -1,6 +1,6 @@
 package com.example.application.views.home;
 
-import com.example.application.data.entity.RandomLineSelector;
+import com.example.application.data.RandomLineSelector;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasStyle;
