@@ -1,3 +1,13 @@
+@import "theme-editor.css";
 @import url('./main-layout.css');
 @import url('./views/home-view.css');
 
+html {
+    [theme~="dark"]{
+    --lumo-primary-color: #C2A187;
+    --lumo-font-family: 'Helvetica';
+    --lumo-contrast-5pct: #C2A187;
+
+
+    }
+  }

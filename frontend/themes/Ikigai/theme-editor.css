@@ -1,0 +1,67 @@
+/*
+ * This file has been created by the Vaadin Theme Editor. Please note that
+ * manual changes to individual CSS properties may be overwritten by the theme editor.
+ */
+h2.home-view-h2-1 {
+  color:#222222;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  font-weight:bold;
+}
+
+header.main-layout-header-1 {
+  background-color:#FFC1CC;
+  border-radius:var(--lumo-border-radius-m);
+}
+
+p.home-view-card-p-1 { color:#444444; }
+
+p.home-view-p-1 {
+  border-radius:var(--lumo-border-radius-m);
+  color:#444444;
+  font-weight:bold;
+  padding:var(--lumo-space-s);
+}
+
+span.home-view-card-span-1 { color:#222222; }
+
+span.home-view-card-span-2 { color:#417483; }
+
+span.home-view-card-span-3 {
+  background-color:#417483;
+  border-color:#417483;
+  color:orange;
+}
+
+vaadin-app-layout.main-layout-app-layout-1 { background-color:#C2A187; }
+
+vaadin-app-layout.main-layout-app-layout-1::part(drawer) {
+  background-color:#417483;
+  padding:0;
+}
+
+vaadin-app-layout.main-layout-app-layout-1::part(navbar) {
+  background-color:#417483;
+  padding:0;
+}
+
+vaadin-scroller.main-layout-scroller-1 {
+  background-color:#417483;
+  border-radius:var(--lumo-border-radius-m);
+  border-width:0px;
+  padding:var(--lumo-space-s);
+}
+
+vaadin-select-overlay.home-view-select-1 vaadin-select-item { color:#444444; }
+
+vaadin-select-overlay.home-view-select-1 vaadin-select-item::part(checkmark)::before { color:#444444; }
+
+vaadin-select-overlay.home-view-select-1::part(overlay) {
+  background-color:#417483;
+  border-color:#444444;
+}
+
+vaadin-select.home-view-select-1 vaadin-select-value-button>vaadin-select-item { color:#444444; }
+
+vaadin-select.home-view-select-1::part(helper-text) { color:#444444; }
+
+vaadin-select.home-view-select-1::part(label) { color:#222222; }

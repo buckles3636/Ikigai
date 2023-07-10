@@ -38,17 +38,25 @@ public class HomeViewCard extends ListItem {
         div.add(image);
 
         Span header = new Span();
+        //<theme-editor-local-classname>
+        header.addClassName("home-view-card-span-1");
         header.addClassNames(FontSize.XLARGE, FontWeight.SEMIBOLD);
         header.setText(titleString);
 
         Span subtitle = new Span();
+        //<theme-editor-local-classname>
+        subtitle.addClassName("home-view-card-span-2");
         subtitle.addClassNames(FontSize.SMALL, TextColor.SECONDARY);
         subtitle.setText(subtitleString);
 
         Paragraph description = new Paragraph(textString);
+        //<theme-editor-local-classname>
+        description.addClassName("home-view-card-p-1");
         description.addClassName(Margin.Vertical.MEDIUM);
 
         Span badge = new Span();
+        //<theme-editor-local-classname>
+        badge.addClassName("home-view-card-span-3");
         badge.getElement().setAttribute("theme", "badge");
 
         for (String tag : tagsList){

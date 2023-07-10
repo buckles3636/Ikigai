@@ -7,10 +7,12 @@ import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Header;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
 import com.vaadin.flow.component.sidenav.SideNavItem;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.server.StreamResource;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import org.vaadin.lineawesome.LineAwesomeIcon;
 
@@ -25,6 +27,8 @@ public class MainLayout extends AppLayout {
         setPrimarySection(Section.DRAWER);
         addDrawerContent();
         addHeaderContent();
+        //<theme-editor-local-classname>
+        addClassName("main-layout-app-layout-1");
     }
 
     private void addHeaderContent() {
@@ -38,11 +42,20 @@ public class MainLayout extends AppLayout {
     }
 
     private void addDrawerContent() {
-        H1 appName = new H1("Ikigai");
-        appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
-        Header header = new Header(appName);
+
+        StreamResource logo1 = new StreamResource("logo1.png",
+        () -> getClass().getResourceAsStream("/logo2.png"));
+        Image logo = new Image(logo1, "Ikigai");
+        logo.setWidth("auto"); // Adjust the image width as needed
+        logo.setHeight("130px");
+        
+        Header header = new Header(logo);
+        //<theme-editor-local-classname>
+        header.addClassName("main-layout-header-1");
 
         Scroller scroller = new Scroller(createNavigation());
+        //<theme-editor-local-classname>
+        scroller.addClassName("main-layout-scroller-1");
 
         addToDrawer(header, scroller, createFooter());
     }
