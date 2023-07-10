@@ -1,5 +1,8 @@
 vaadin-scroller[slot="drawer"] {
   padding: var(--lumo-space-s);
+  background-color: #C2A187;
+  color: azure;
+
 }
 
 [slot="drawer"]:is(header, footer) {
@@ -9,8 +12,14 @@ vaadin-scroller[slot="drawer"] {
   padding: var(--lumo-space-s) var(--lumo-space-m);
   min-height: var(--lumo-size-xl);
   box-sizing: border-box;
+  background-color: grey;
+  color: azure;
+
 }
 
 [slot="drawer"]:is(header, footer):is(:empty) {
   display: none;
+  background-color: grey;
+  color: azure;
+
 }

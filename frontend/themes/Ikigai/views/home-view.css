@@ -1,0 +1,49 @@
+.home-view ol {
+  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+  color: #ffffff; /* White text color */
+  accent-color: #4287f5; /* Blue accent color */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+.home-view li {
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color, box-shadow;
+  color: #ffffff; /* White text color */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.home-view li:hover {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Add a subtle box-shadow effect */
+  background-color: #C2A187; /* Custom hover background color */
+  color: #ffffff; /* White text color */
+}
+
+.home-view .header-container {
+  background-color: #C2A187;
+  padding: 1rem; /* Add some padding */
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 1rem; /* Add a bottom margin */
+}
+
+.home-view .header-container h2 {
+  background-color: #C2A187;
+  margin: 0; /* Remove top and bottom margin */
+  font-size: 2rem; /* Increase font size */
+  color: #ffffff; /* White text color */
+}
+
+.home-view .header-container p {
+  margin: 0; /* Remove top and bottom margin */
+  color: #cccccc; /* Light grey text color */
+}
+
+.home-view .sort-by {
+  margin-bottom: 1rem; /* Add a bottom margin */
+}
+
+.home-view .image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(256px, 1fr));
+  grid-gap: 1rem; /* Add some gap between images */
+}
