@@ -8,6 +8,6 @@
 }
 
 .home-view li:hover {
-  background-color: var(--lumo-base-color);
+  background-color: var(#0B3C49);
   box-shadow: var(--lumo-box-shadow-s);
 }
