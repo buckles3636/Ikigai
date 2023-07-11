@@ -1,5 +1,6 @@
 package com.example.application.views;
 
+import com.example.application.views.AcceptedListings.AcceptedListings;
 import com.example.application.views.home.HomeView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -64,6 +65,8 @@ public class MainLayout extends AppLayout {
         SideNav nav = new SideNav();
 
         nav.addItem(new SideNavItem("Home", HomeView.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
+        nav.addItem(new SideNavItem("Accepted Listings", AcceptedListings.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
+        nav.addItem(new SideNavItem("My Listings", AcceptedListings.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
     
 
         return nav;

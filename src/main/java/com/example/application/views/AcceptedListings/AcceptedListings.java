@@ -1,7 +1,8 @@
-package com.example.application.views.home;
+package com.example.application.views.AcceptedListings;
 
 import com.example.application.data.RandomLineSelector;
 import com.example.application.views.MainLayout;
+import com.example.application.views.home.HomeViewCard;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.html.H2;
@@ -13,7 +14,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouteAlias;
 import com.vaadin.flow.theme.lumo.LumoUtility.AlignItems;
 import com.vaadin.flow.theme.lumo.LumoUtility.Display;
 import com.vaadin.flow.theme.lumo.LumoUtility.FontSize;
@@ -25,13 +25,13 @@ import com.vaadin.flow.theme.lumo.LumoUtility.MaxWidth;
 import com.vaadin.flow.theme.lumo.LumoUtility.Padding;
 import com.vaadin.flow.theme.lumo.LumoUtility.TextColor;
 
-@PageTitle("Home")
-@Route(value = "home", layout = MainLayout.class)
-public class HomeView extends Main implements HasComponents, HasStyle {
+@PageTitle("Accepted Listings")
+@Route(value = "acceptedlistings", layout = MainLayout.class)
+public class AcceptedListings extends Main implements HasComponents, HasStyle {
 
     private OrderedList imageContainer;
 
-    public HomeView() {
+    public AcceptedListings() {
         constructUI();
 
         String[] exampleTagsList = {"Science", "Tech", "Exploration"};
