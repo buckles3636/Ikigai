@@ -52,7 +52,7 @@ public class HomeViewCard extends ListItem {
         //<theme-editor-local-classname>
         subtitle.addClassName("home-view-card-span-2");
         subtitle.addClassNames(FontSize.SMALL, TextColor.SECONDARY);
-        subtitle.setText(l.getSubtitleString());
+        subtitle.setText(l.getPublisher().getFirstName() + " " + l.getPublisher().getLastName());
 
         Paragraph description = new Paragraph(l.getTextString());
         //<theme-editor-local-classname>

@@ -11,15 +11,15 @@ public class Listing {
     private String tag;
     
     public Listing(User publisher, String date, int views, String titleString, 
-                   String subtitleString, String textString, String imageURL, String tag) {
+                    String textString, String tag, String imageURL) {
         this.publisher = publisher;
         this.date = date;
         this.views = views;
         this.titleString = titleString;
-        this.subtitleString = subtitleString;
         this.textString = textString;
-        this.imageURL = imageURL;
         this.tag = tag;
+        this.imageURL = imageURL;
+        
         publisher.addUserListing(this.getInstance());
     }
 
