@@ -1,11 +1,9 @@
 package com.example.application.views;
 
-import com.example.application.views.AcceptedListings.AcceptedListings;
 import com.example.application.views.home.HomeView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
-import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Header;
 import com.vaadin.flow.component.html.Image;
@@ -18,7 +16,7 @@ import com.vaadin.flow.theme.lumo.LumoUtility;
 import org.vaadin.lineawesome.LineAwesomeIcon;
 
 /**
- * The main view is a top-level placeholder for other views.
+ * The main view is a top-level placeholder for other views.56
  */
 public class MainLayout extends AppLayout {
 
@@ -65,8 +63,8 @@ public class MainLayout extends AppLayout {
         SideNav nav = new SideNav();
 
         nav.addItem(new SideNavItem("Home", HomeView.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
-        nav.addItem(new SideNavItem("Accepted Listings", AcceptedListings.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
-        nav.addItem(new SideNavItem("My Listings", AcceptedListings.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
+        //nav.addItem(new SideNavItem("Accepted Listings", AcceptedListings.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
+        //nav.addItem(new SideNavItem("My Listings", AcceptedListings.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
     
 
         return nav;

@@ -1,5 +1,7 @@
 package com.example.application.views.home;
 
+import com.example.application.Application;
+import com.example.application.data.Listing;
 import com.example.application.data.RandomLineSelector;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.HasComponents;
@@ -34,13 +36,9 @@ public class HomeView extends Main implements HasComponents, HasStyle {
     public HomeView() {
         constructUI();
 
-        String[] exampleTagsList = {"Science", "Tech", "Exploration"};
-        
-        imageContainer.add(new HomeViewCard("Peters Astrology Class", 
-                                            "Let me teach you about Astrology!",
-                                            "In this course we will cover the basics of constolations and astrological maps",
-                                            "https://images.unsplash.com/photo-1515705576963-95cad62945b6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80",
-                                            exampleTagsList));
+        for (Listing l : Application.listingDataBase){
+            imageContainer.add(new HomeViewCard(l));
+        }
     }
 
     private void constructUI() {

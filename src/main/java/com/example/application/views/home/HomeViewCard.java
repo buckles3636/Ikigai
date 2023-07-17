@@ -1,5 +1,6 @@
 package com.example.application.views.home;
 
+import com.example.application.data.Listing;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.ListItem;
@@ -19,9 +20,13 @@ import com.vaadin.flow.theme.lumo.LumoUtility.Padding;
 import com.vaadin.flow.theme.lumo.LumoUtility.TextColor;
 import com.vaadin.flow.theme.lumo.LumoUtility.Width;
 
+//This class makes home viewcard object for listings --peter
+
 public class HomeViewCard extends ListItem {
 
-    public HomeViewCard(String titleString, String subtitleString, String textString, String imageURL, String[] tagsList) {
+    public HomeViewCard(Listing l) {
+
+        //String titleString, String subtitleString, String textString, String imageURL, String tag
         addClassNames(Background.CONTRAST_5, Display.FLEX, FlexDirection.COLUMN, AlignItems.START, Padding.MEDIUM,
                 BorderRadius.LARGE);
 
@@ -32,8 +37,8 @@ public class HomeViewCard extends ListItem {
 
         Image image = new Image();
         image.setWidth("100%");
-        image.setSrc(imageURL);
-        image.setAlt(textString);
+        image.setSrc(l.getImageURL());
+        image.setAlt(l.getTextString());
 
         div.add(image);
 
@@ -41,15 +46,15 @@ public class HomeViewCard extends ListItem {
         //<theme-editor-local-classname>
         header.addClassName("home-view-card-span-1");
         header.addClassNames(FontSize.XLARGE, FontWeight.SEMIBOLD);
-        header.setText(titleString);
+        header.setText(l.getTitleString());
 
         Span subtitle = new Span();
         //<theme-editor-local-classname>
         subtitle.addClassName("home-view-card-span-2");
         subtitle.addClassNames(FontSize.SMALL, TextColor.SECONDARY);
-        subtitle.setText(subtitleString);
+        subtitle.setText(l.getSubtitleString());
 
-        Paragraph description = new Paragraph(textString);
+        Paragraph description = new Paragraph(l.getTextString());
         //<theme-editor-local-classname>
         description.addClassName("home-view-card-p-1");
         description.addClassName(Margin.Vertical.MEDIUM);
@@ -59,9 +64,7 @@ public class HomeViewCard extends ListItem {
         badge.addClassName("home-view-card-span-3");
         badge.getElement().setAttribute("theme", "badge");
 
-        for (String tag : tagsList){
-                badge.setText(tag);
-        }
+        badge.setText(l.getTag());
 
         add(div, header, subtitle, description, badge);
 
