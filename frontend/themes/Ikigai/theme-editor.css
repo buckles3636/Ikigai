@@ -41,7 +41,7 @@ span.home-view-card-span-3 {
   color:Black;
 }
 
-vaadin-app-layout.main-layout-app-layout-1 { background-color:#A2A3BB; }
+vaadin-app-layout.main-layout-app-layout-1 { background-color:white; }
 
 vaadin-app-layout.main-layout-app-layout-1::part(drawer) {
   background-color:#0B3C49;
