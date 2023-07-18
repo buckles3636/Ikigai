@@ -54,6 +54,13 @@ public class HomeViewCard extends ListItem {
         subtitle.addClassNames(FontSize.SMALL, TextColor.SECONDARY);
         subtitle.setText(l.getPublisher().getFirstName() + " " + l.getPublisher().getLastName());
 
+        Span dateTimeSpan = new Span();
+        //<theme-editor-local-classname>
+        dateTimeSpan.addClassName("home-view-card-span-4");
+        //<theme-editor-local-classname>
+        dateTimeSpan.addClassNames(FontSize.SMALL, TextColor.SECONDARY);
+        dateTimeSpan.setText(l.getDate());
+
         Paragraph description = new Paragraph(l.getTextString());
         //<theme-editor-local-classname>
         description.addClassName("home-view-card-p-1");
@@ -66,7 +73,7 @@ public class HomeViewCard extends ListItem {
 
         badge.setText(l.getTag());
 
-        add(div, header, subtitle, description, badge);
+        add(div, header, subtitle, dateTimeSpan, description, badge);
 
     }
 }
