@@ -1,6 +1,7 @@
 package com.example.application.data;
 
 public class Listing {
+    private String key;
     private User publisher;
     private String date;
     private int views;
@@ -10,8 +11,9 @@ public class Listing {
     private String imageURL;
     private String tag;
     
-    public Listing(User publisher, String date, int views, String titleString, 
+    public Listing(User publisher, String key, String date, int views, String titleString, 
                     String textString, String tag, String imageURL) {
+        this.key = key;
         this.publisher = publisher;
         this.date = date;
         this.views = views;
@@ -21,6 +23,10 @@ public class Listing {
         this.imageURL = imageURL;
         
         publisher.addUserListing(this.getInstance());
+    }
+
+    public String getKey() {
+        return key;
     }
 
     public Listing getInstance() {

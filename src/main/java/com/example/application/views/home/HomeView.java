@@ -39,10 +39,15 @@ public class HomeView extends Main implements HasComponents, HasStyle {
     public HomeView() {
         constructUI();
 
-        for (Listing l : Application.listingDataBase){
 
+
+        for (Listing l : Application.listingDataBase.values()){
+
+            //adds home view card to homepage -Peter
             HomeViewCard temp = new HomeViewCard(l);
-            String clickedListing = l.getTitleString();
+            //hashkey to be passed -Peter
+            String clickedListing = l.getKey();
+            //adds click listener to navigate to ListingView.java -Peter
             temp.addClickListener(event -> UI.getCurrent().navigate(ListingView.class, clickedListing));
             imageContainer.add(temp);
 
