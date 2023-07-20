@@ -1,4 +1,4 @@
-package com.example.application.views.home;
+package com.example.application.views;
 
 import com.example.application.Application;
 import com.example.application.data.Listing;
@@ -7,7 +7,6 @@ import com.example.application.views.ListingView;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasStyle;
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.OrderedList;
@@ -30,22 +29,22 @@ import com.vaadin.flow.theme.lumo.LumoUtility.MaxWidth;
 import com.vaadin.flow.theme.lumo.LumoUtility.Padding;
 import com.vaadin.flow.theme.lumo.LumoUtility.TextColor;
 
-@PageTitle("Home")
-@Route(value = "home", layout = MainLayout.class)
-public class HomeView extends Main implements HasComponents, HasStyle {
+@PageTitle("MyListing")
+@Route(value = "mylistings", layout = MainLayout.class)
+public class CurrentUserListingsextends Main implements HasComponents, HasStyle {
 
     private OrderedList imageContainer;
 
     public HomeView() {
         constructUI();
 
-        for (Listing l : Application.listingDataBase){
+        RouterLink routerLink = new RouterLink("", ListingView.class);
+
+        for (Listing l : Application.currentUser.getUserListings()){
 
             HomeViewCard temp = new HomeViewCard(l);
-            String clickedListing = l.getTitleString();
-            temp.addClickListener(event -> UI.getCurrent().navigate(ListingView.class, clickedListing));
             imageContainer.add(temp);
-
+            //routerLink.add(temp);
         }
     }
 
