@@ -64,7 +64,7 @@ public class MainLayout extends AppLayout {
         SideNav nav = new SideNav();
 
         nav.addItem(new SideNavItem("Home", HomeView.class, new Icon("lumo", "unordered-list")));
-        //nav.addItem(new SideNavItem("Accepted Listings", AcceptedListings.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
+        nav.addItem(new SideNavItem("Accepted Listings", AcceptedListingsView.class, new Icon("lumo", "calendar")));
         nav.addItem(new SideNavItem("My Listings", MyListingsView.class, new Icon("lumo", "user")));
     
 

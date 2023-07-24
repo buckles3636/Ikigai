@@ -29,18 +29,18 @@ import com.vaadin.flow.theme.lumo.LumoUtility.MaxWidth;
 import com.vaadin.flow.theme.lumo.LumoUtility.Padding;
 import com.vaadin.flow.theme.lumo.LumoUtility.TextColor;
 
-@PageTitle("My Listings")
-@Route(value = "mylistings", layout = MainLayout.class)
-public class MyListingsView extends Main implements HasComponents, HasStyle {
+@PageTitle("Followed Listings")
+@Route(value = "followedlistings", layout = MainLayout.class)
+public class AcceptedListingsView extends Main implements HasComponents, HasStyle {
 
     private OrderedList imageContainer;
 
-    public MyListingsView() {
+    public AcceptedListingsView() {
         constructUI();
 
 
 
-        for (Listing l : Application.currentUser.getUserListings()){
+        for (Listing l : Application.currentUser.getAcceptedListings()){
 
             //adds home view card to homepage -Peter
             HomeViewCard temp = new HomeViewCard(l);
@@ -61,7 +61,7 @@ public class MyListingsView extends Main implements HasComponents, HasStyle {
         container.addClassNames(AlignItems.CENTER, JustifyContent.BETWEEN);
 
         VerticalLayout headerContainer = new VerticalLayout();
-        H2 header = new H2("Manage Your Shared Passions and Inspirations!");
+        H2 header = new H2("Future RSVPs - Your Awaited Inspirations!");
         //<theme-editor-local-classname>
         header.addClassName("home-view-h2-1");
         header.addClassNames(Margin.Bottom.NONE, Margin.Top.XLARGE, FontSize.XXXLARGE);
