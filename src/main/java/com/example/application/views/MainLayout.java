@@ -7,6 +7,7 @@ import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Header;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
 import com.vaadin.flow.component.sidenav.SideNavItem;
@@ -62,9 +63,9 @@ public class MainLayout extends AppLayout {
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
 
-        nav.addItem(new SideNavItem("Home", HomeView.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
+        nav.addItem(new SideNavItem("Home", HomeView.class, new Icon("lumo", "unordered-list")));
         //nav.addItem(new SideNavItem("Accepted Listings", AcceptedListings.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
-        //nav.addItem(new SideNavItem("My Listings", AcceptedListings.class, LineAwesomeIcon.TH_LIST_SOLID.create()));
+        nav.addItem(new SideNavItem("My Listings", MyListingsView.class, new Icon("lumo", "user")));
     
 
         return nav;

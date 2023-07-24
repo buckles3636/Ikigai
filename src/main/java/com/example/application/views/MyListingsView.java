@@ -1,10 +1,11 @@
-package com.example.application.views.home;
+package com.example.application.views;
 
 import com.example.application.Application;
 import com.example.application.data.Listing;
 import com.example.application.data.RandomLineSelector;
 import com.example.application.views.ListingView;
 import com.example.application.views.MainLayout;
+import com.example.application.views.home.HomeViewCard;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.UI;
@@ -30,16 +31,16 @@ import com.vaadin.flow.theme.lumo.LumoUtility.TextColor;
 
 @PageTitle("My Listings")
 @Route(value = "mylistings", layout = MainLayout.class)
-public class CurrentUserListingsView extends Main implements HasComponents, HasStyle {
+public class MyListingsView extends Main implements HasComponents, HasStyle {
 
     private OrderedList imageContainer;
 
-    public CurrentUserListingsView() {
+    public MyListingsView() {
         constructUI();
 
 
 
-        for (Listing l : Application.listingDataBase.values()){
+        for (Listing l : Application.currentUser.getUserListings()){
 
             //adds home view card to homepage -Peter
             HomeViewCard temp = new HomeViewCard(l);

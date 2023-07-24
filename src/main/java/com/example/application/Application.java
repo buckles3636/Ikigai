@@ -31,6 +31,7 @@ public class Application implements AppShellConfigurator {
 
         initilizeData();
         SpringApplication.run(Application.class, args);
+        
     }
 
     //initilizes fake users and listings -Peter
@@ -96,6 +97,6 @@ public class Application implements AppShellConfigurator {
         "https://assetsio.reedpopcdn.com/chess-playing-hand.jpeg?width=848&quality=80&format=jpg&auto=webp"
          ));
 
-
+        currentUser = userDataBase.get("peterbuckley");
     }
 }
