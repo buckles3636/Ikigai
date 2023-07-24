@@ -6,6 +6,7 @@ import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.ListItem;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.theme.lumo.LumoUtility.AlignItems;
 import com.vaadin.flow.theme.lumo.LumoUtility.Background;
 import com.vaadin.flow.theme.lumo.LumoUtility.BorderRadius;
@@ -48,11 +49,24 @@ public class HomeViewCard extends ListItem {
         header.addClassNames(FontSize.XLARGE, FontWeight.SEMIBOLD);
         header.setText(l.getTitleString());
 
+        HorizontalLayout profile = new HorizontalLayout();
+        profile.addClassName("home-view-card-horizontal-layout-1");
+
         Span subtitle = new Span();
         //<theme-editor-local-classname>
         subtitle.addClassName("home-view-card-span-2");
         subtitle.addClassNames(FontSize.SMALL, TextColor.SECONDARY);
         subtitle.setText(l.getPublisher().getFirstName() + " " + l.getPublisher().getLastName());
+
+        Image profilePic = new Image();
+        profilePic.setSrc(l.getPublisher().getProfilePicUrl());
+        profilePic.setAlt("profilepic");
+        profilePic.setWidth("30px"); // Set the desired width
+        profilePic.setHeight("30px");
+        profilePic.getStyle().set("border-radius", "50%");
+        profilePic.getStyle().set("overflow", "hidden");
+
+        profile.add(subtitle, profilePic);
 
         Span dateTimeSpan = new Span();
         //<theme-editor-local-classname>
@@ -73,6 +87,6 @@ public class HomeViewCard extends ListItem {
 
         badge.setText(l.getTag());
 
-        add(div, header, subtitle, dateTimeSpan, description, badge);
+        add(div, header, profile, dateTimeSpan, description, badge);
     }
 }
