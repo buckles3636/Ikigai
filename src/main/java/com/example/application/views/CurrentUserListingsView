@@ -1,4 +1,4 @@
-package com.example.application.views;
+package com.example.application.views.home;
 
 import com.example.application.Application;
 import com.example.application.data.Listing;
@@ -7,6 +7,7 @@ import com.example.application.views.ListingView;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasStyle;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.OrderedList;
@@ -16,8 +17,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouteAlias;
-import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.theme.lumo.LumoUtility.AlignItems;
 import com.vaadin.flow.theme.lumo.LumoUtility.Display;
 import com.vaadin.flow.theme.lumo.LumoUtility.FontSize;
@@ -29,22 +28,27 @@ import com.vaadin.flow.theme.lumo.LumoUtility.MaxWidth;
 import com.vaadin.flow.theme.lumo.LumoUtility.Padding;
 import com.vaadin.flow.theme.lumo.LumoUtility.TextColor;
 
-@PageTitle("MyListing")
+@PageTitle("My Listings")
 @Route(value = "mylistings", layout = MainLayout.class)
-public class CurrentUserListingsextends Main implements HasComponents, HasStyle {
+public class CurrentUserListingsView extends Main implements HasComponents, HasStyle {
 
     private OrderedList imageContainer;
 
-    public HomeView() {
+    public CurrentUserListingsView() {
         constructUI();
 
-        RouterLink routerLink = new RouterLink("", ListingView.class);
 
-        for (Listing l : Application.currentUser.getUserListings()){
 
+        for (Listing l : Application.listingDataBase.values()){
+
+            //adds home view card to homepage -Peter
             HomeViewCard temp = new HomeViewCard(l);
+            //hashkey to be passed -Peter
+            String clickedListing = l.getKey();
+            //adds click listener to navigate to ListingView.java -Peter
+            temp.addClickListener(event -> UI.getCurrent().navigate(ListingView.class, clickedListing));
             imageContainer.add(temp);
-            //routerLink.add(temp);
+
         }
     }
 

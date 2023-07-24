@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <!-- Project from https://start.vaadin.com/project/c6b54d3c-5493-4bc0-a1c8-4bc7b1e06925 -->
     <groupId>com.example.application</groupId>
-    <artifactId>hobbyhouse</artifactId>
-    <name>hobbyhouse</name>
+    <artifactId>ikigai</artifactId>
+    <name>ikigai</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 

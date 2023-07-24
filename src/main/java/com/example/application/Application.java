@@ -9,7 +9,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
  * The entry point of the Spring Boot application.
@@ -32,9 +31,6 @@ public class Application implements AppShellConfigurator {
 
         initilizeData();
         SpringApplication.run(Application.class, args);
-
-        
-        
     }
 
     //initilizes fake users and listings -Peter
@@ -62,7 +58,6 @@ public class Application implements AppShellConfigurator {
 
         userDataBase.put("jameszieper", new User("James", "Zieper", "Denver", "jzieper@xylime.com","nw", 19,
         "https://media.licdn.com/dms/image/D5603AQEjfQ3VAIamhA/profile-displayphoto-shrink_100_100/0/1689273614114?e=1695254400&v=beta&t=hTO7ywLqQCOQ11ge_Ni31wIwo09Epm_DkDjUrjdZcVU"));
-
 
 
 
