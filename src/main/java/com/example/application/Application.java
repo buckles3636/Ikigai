@@ -92,7 +92,7 @@ public class Application implements AppShellConfigurator {
         "https://www.musicnotes.com/images2/promos/store/900x520_piano-min.jpg"
          ));
 
-        listingDataBase.put("chessstratagy", new Listing(userDataBase.get("jameszieper"), "chessstratagy", "8/25/2023 3:00pm", 0, "Chess Stratagy", 
+        listingDataBase.put("chessstrategy", new Listing(userDataBase.get("jameszieper"), "chessstrategy", "8/25/2023 3:00pm", 0, "Chess Strategy", 
         "In this course, we will teach you how to not only understand the board, but also your opponent.", "Music",
         "https://assetsio.reedpopcdn.com/chess-playing-hand.jpeg?width=848&quality=80&format=jpg&auto=webp"
          ));
