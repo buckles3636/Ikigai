@@ -1,4 +1,4 @@
-package com.example.application.views.home;
+package com.example.application.views.admin;
 
 import com.example.application.Application;
 import com.example.application.data.Listing;
@@ -28,21 +28,21 @@ import com.vaadin.flow.theme.lumo.LumoUtility.MaxWidth;
 import com.vaadin.flow.theme.lumo.LumoUtility.Padding;
 import com.vaadin.flow.theme.lumo.LumoUtility.TextColor;
 
-@PageTitle("Home")
-@Route(value = "home", layout = MainLayout.class)
-public class HomeView extends Main implements HasComponents, HasStyle {
+@PageTitle("Admin")
+@Route(value = "admin", layout = MainLayout.class)
+public class AdminView extends Main implements HasComponents, HasStyle {
 
     private OrderedList imageContainer;
 
-    public HomeView() {
+    public AdminView() {
         constructUI();
 
 
 
         for (Listing l : Application.listingDataBase.values()){
-            if (l.getPending().equals(false)){
+            if (l.getPending().equals(true)){
                 //adds home view card to homepage -Peter
-                HomeViewCard temp = new HomeViewCard(l);
+                AdminViewCard temp = new AdminViewCard(l);
                 //hashkey to be passed -Peter
                 String clickedListing = l.getKey();
                 //adds click listener to navigate to ListingView.java -Peter
@@ -60,7 +60,7 @@ public class HomeView extends Main implements HasComponents, HasStyle {
         container.addClassNames(AlignItems.CENTER, JustifyContent.BETWEEN);
 
         VerticalLayout headerContainer = new VerticalLayout();
-        H2 header = new H2("Lets See What Your Co-Workers are Passionate About!");
+        H2 header = new H2("Approve passions to let your workforce flourish!");
         //<theme-editor-local-classname>
         header.addClassName("home-view-h2-1");
         header.addClassNames(Margin.Bottom.NONE, Margin.Top.XLARGE, FontSize.XXXLARGE);

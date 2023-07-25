@@ -1,5 +1,6 @@
 package com.example.application.views;
 
+import com.example.application.views.admin.AdminView;
 import com.example.application.views.home.HomeView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -66,6 +67,7 @@ public class MainLayout extends AppLayout {
         nav.addItem(new SideNavItem("Home", HomeView.class, new Icon("lumo", "unordered-list")));
         nav.addItem(new SideNavItem("Accepted Listings", AcceptedListingsView.class, new Icon("lumo", "calendar")));
         nav.addItem(new SideNavItem("My Listings", MyListingsView.class, new Icon("lumo", "user")));
+        nav.addItem(new SideNavItem("Admin", AdminView.class, new Icon("lumo", "cog")));
     
 
         return nav;

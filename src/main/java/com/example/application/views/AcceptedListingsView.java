@@ -41,7 +41,7 @@ public class AcceptedListingsView extends Main implements HasComponents, HasStyl
 
 
         for (Listing l : Application.currentUser.getAcceptedListings()){
-
+            
             //adds home view card to homepage -Peter
             HomeViewCard temp = new HomeViewCard(l);
             //hashkey to be passed -Peter

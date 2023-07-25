@@ -10,9 +10,10 @@ public class Listing {
     private String textString;
     private String imageURL;
     private String tag;
+    private Boolean pending;
     
     public Listing(User publisher, String key, String date, int views, String titleString, 
-                    String textString, String tag, String imageURL) {
+                    String textString, String tag, Boolean pending, String imageURL) {
         this.key = key;
         this.publisher = publisher;
         this.date = date;
@@ -20,9 +21,18 @@ public class Listing {
         this.titleString = titleString;
         this.textString = textString;
         this.tag = tag;
+        this.pending = pending;
         this.imageURL = imageURL;
         
         publisher.addUserListing(this.getInstance());
+    }
+
+    public void push() {
+        this.pending = false;
+    }
+
+    public void pull() {
+        this.pending = true;
     }
 
     public String getKey() {
@@ -63,5 +73,9 @@ public class Listing {
     
     public String getTag() {
         return tag;
+    }
+
+    public Boolean getPending() {
+        return pending;
     }
 }
