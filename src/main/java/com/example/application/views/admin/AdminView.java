@@ -32,21 +32,16 @@ import com.vaadin.flow.theme.lumo.LumoUtility.TextColor;
 @Route(value = "admin", layout = MainLayout.class)
 public class AdminView extends Main implements HasComponents, HasStyle {
 
-    private OrderedList imageContainer;
+    private VerticalLayout imageContainer; // Change the type to VerticalLayout
 
     public AdminView() {
         constructUI();
 
-
-
-        for (Listing l : Application.listingDataBase.values()){
-            if (l.getPending().equals(true)){
-                //adds home view card to homepage -Peter
+        for (Listing l : Application.listingDataBase.values()) {
+            if (l.getPending().equals(true)) {
+                // adds home view card to homepage -Peter
                 AdminViewCard temp = new AdminViewCard(l);
-                //hashkey to be passed -Peter
-                String clickedListing = l.getKey();
-                //adds click listener to navigate to ListingView.java -Peter
-                temp.addClickListener(event -> UI.getCurrent().navigate(ListingView.class, clickedListing));
+                // adds click listener to navigate to ListingView.java -Peter
                 imageContainer.add(temp);
             }
         }
@@ -64,26 +59,14 @@ public class AdminView extends Main implements HasComponents, HasStyle {
         //<theme-editor-local-classname>
         header.addClassName("home-view-h2-1");
         header.addClassNames(Margin.Bottom.NONE, Margin.Top.XLARGE, FontSize.XXXLARGE);
-        Paragraph description = new Paragraph(RandomLineSelector.selectRandomLineFromFile("src/main/resources/MotivationalQoutes.txt"));
-        //<theme-editor-local-classname>
-        description.addClassName("home-view-p-1");
-        description.addClassNames(Margin.Bottom.XLARGE, Margin.Top.NONE, TextColor.SECONDARY);
-        headerContainer.add(header, description);
 
-        Select<String> sortBy = new Select<>();
-        //<theme-editor-local-classname>
-        sortBy.setOverlayClassName("home-view-select-1");
-        //<theme-editor-local-classname>
-        sortBy.addClassName("home-view-select-1");
-        sortBy.setLabel("Sort by");
-        sortBy.setItems("Popularity", "Newest first", "Oldest first");
-        sortBy.setValue("Popularity");
+        headerContainer.add(header);
 
-        imageContainer = new OrderedList();
-        imageContainer.addClassNames(Gap.MEDIUM, Display.GRID, ListStyleType.NONE, Margin.NONE, Padding.NONE);
+        // Use VerticalLayout instead of OrderedList for imageContainer
+        imageContainer = new VerticalLayout();
+        imageContainer.addClassNames(Gap.MEDIUM, Margin.NONE, Padding.NONE);
 
-        container.add(headerContainer, sortBy);
+        container.add(headerContainer);
         add(container, imageContainer);
-
     }
 }

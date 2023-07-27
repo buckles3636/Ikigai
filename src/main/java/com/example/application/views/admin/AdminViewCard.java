@@ -1,12 +1,15 @@
 package com.example.application.views.admin;
 
 import com.example.application.data.Listing;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.ListItem;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.theme.lumo.LumoUtility.AlignItems;
 import com.vaadin.flow.theme.lumo.LumoUtility.Background;
 import com.vaadin.flow.theme.lumo.LumoUtility.BorderRadius;
@@ -30,6 +33,9 @@ public class AdminViewCard extends ListItem {
         //String titleString, String subtitleString, String textString, String imageURL, String tag
         addClassNames(Background.CONTRAST_5, Display.FLEX, FlexDirection.COLUMN, AlignItems.START, Padding.MEDIUM,
                 BorderRadius.LARGE);
+        setWidth("900px");
+
+        //------------------------------------------------------------------------------------//
 
         Div div = new Div();
         div.addClassNames(Background.CONTRAST, Display.FLEX, AlignItems.CENTER, JustifyContent.CENTER,
@@ -42,6 +48,14 @@ public class AdminViewCard extends ListItem {
         image.setAlt(l.getTextString());
 
         div.add(image);
+
+        //-----------------------------------------------------------------------------------//
+
+        HorizontalLayout adminLayout = new HorizontalLayout();
+
+        //-----------------------------------------------------------------------------------//
+
+        VerticalLayout postInfo = new VerticalLayout();
 
         Span header = new Span();
         //<theme-editor-local-classname>
@@ -65,7 +79,6 @@ public class AdminViewCard extends ListItem {
         profilePic.setHeight("30px");
         profilePic.getStyle().set("border-radius", "50%");
         profilePic.getStyle().set("overflow", "hidden");
-
         profile.add(subtitle, profilePic);
 
         Span dateTimeSpan = new Span();
@@ -84,9 +97,79 @@ public class AdminViewCard extends ListItem {
         //<theme-editor-local-classname>
         badge.addClassName("home-view-card-span-3");
         badge.getElement().setAttribute("theme", "badge");
-
         badge.setText(l.getTag());
 
-        add(div, header, profile, dateTimeSpan, description, badge);
+        postInfo.add(header, profile, dateTimeSpan, description, badge);
+
+        //----------------------------------------------------------------------------------------------------------//
+
+        VerticalLayout materials = new VerticalLayout();
+
+        Span materialsTitle = new Span();
+        //<theme-editor-local-classname>
+        materialsTitle.addClassName("home-view-card-span-1");
+        materialsTitle.addClassNames(FontSize.XLARGE, FontWeight.SEMIBOLD, Margin.Vertical.SMALL);
+        materialsTitle.setText("Materials Requested");
+
+        materials.add(materialsTitle);
+
+        for (String item : l.getMaterialsList()) {
+            Span bulletPoint = new Span("\u2022 " + item); // Using Unicode bullet point character (U+2022).
+            //<theme-editor-local-classname>
+            bulletPoint.addClassName("admin-view-card-span-1");
+            materials.add(bulletPoint);
+        }
+
+        Span materialsCost = new Span();
+        //<theme-editor-local-classname>
+        materialsCost.addClassName("home-view-card-span-1");
+        materialsCost.addClassNames(FontSize.MEDIUM, FontWeight.SEMIBOLD);
+        materialsCost.setText("Cost: $" + l.getMaterialsCost());
+
+        materials.add(materialsCost);
+
+        //----------------------------------------------------------------------------------------------------------//
+
+        VerticalLayout approveDeny = new VerticalLayout();
+
+        Button approveButton = new Button("Approve");
+        approveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        approveButton.setWidth("200px");
+        approveButton.setHeight("50px");
+
+        approveButton.addClickListener(e -> {
+            // Approves and Pushes listing
+            l.Approve();
+            l.push();
+
+            // Refresh the page
+            getUI().ifPresent(ui -> ui.getPage().reload());
+        });
+
+        Button denyButton = new Button("Deny");
+        denyButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_ERROR);
+        denyButton.setWidth("200px");
+        denyButton.setHeight("50px");
+
+        denyButton.addClickListener(e -> {
+            // Denys listing
+            l.Deny();
+            l.push();
+
+            // Refresh the page
+            getUI().ifPresent(ui -> ui.getPage().reload());
+        });
+
+
+
+        approveDeny.add(approveButton, denyButton);
+
+//----------------------------------------------------------------------------------------------------------//
+
+        adminLayout.add(postInfo, materials, approveDeny);
+
+//---------------------------------------------------------------------------------------------------------//
+
+        add(div,adminLayout);
     }
 }

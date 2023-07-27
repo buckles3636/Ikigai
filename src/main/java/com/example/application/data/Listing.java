@@ -8,12 +8,15 @@ public class Listing {
     private String titleString;
     private String subtitleString; 
     private String textString;
+    private String[] materialsList;
+    private float materialsCost;
     private String imageURL;
     private String tag;
     private Boolean pending;
+    private Boolean approved;
     
     public Listing(User publisher, String key, String date, int views, String titleString, 
-                    String textString, String tag, Boolean pending, String imageURL) {
+                    String textString, String tag, Boolean pending, Boolean approved, String[] materialsList, float materialsCost, String imageURL) {
         this.key = key;
         this.publisher = publisher;
         this.date = date;
@@ -22,6 +25,9 @@ public class Listing {
         this.textString = textString;
         this.tag = tag;
         this.pending = pending;
+        this.approved = approved;
+        this.materialsList = materialsList;
+        this.materialsCost = materialsCost;
         this.imageURL = imageURL;
         
         publisher.addUserListing(this.getInstance());
@@ -77,5 +83,21 @@ public class Listing {
 
     public Boolean getPending() {
         return pending;
+    }
+
+    public void Approve() {
+        approved = true;
+    }
+
+    public void Deny() {
+        approved = false;
+    }
+
+    public String[] getMaterialsList(){
+        return materialsList;
+    }
+
+    public float getMaterialsCost(){
+        return materialsCost;
     }
 }

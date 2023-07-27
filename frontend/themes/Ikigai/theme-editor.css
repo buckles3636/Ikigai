@@ -27,6 +27,8 @@ p.home-view-p-1 {
   padding:var(--lumo-space-s);
 }
 
+span.admin-view-card-span-1 { color:#333333; }
+
 span.home-view-card-span-1 { color:#222222; }
 
 span.home-view-card-span-2 {
