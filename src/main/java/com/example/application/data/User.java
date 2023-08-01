@@ -63,6 +63,9 @@ public class User {
 
     public void addUserListing(Listing l){
         userListings.add(l);
+    }
 
+    public void acceptListing(Listing l){
+        acceptedListings.add(l);
     }
 }

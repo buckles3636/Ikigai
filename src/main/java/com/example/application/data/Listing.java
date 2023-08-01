@@ -1,5 +1,9 @@
 package com.example.application.data;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Listing {
     private String key;
     private User publisher;
@@ -14,6 +18,8 @@ public class Listing {
     private String tag;
     private Boolean pending;
     private Boolean approved;
+    private String dateVerbal;
+    private String timeVerbal;
     
     public Listing(User publisher, String key, String date, int views, String titleString, 
                     String textString, String tag, Boolean pending, Boolean approved, String[] materialsList, float materialsCost, String imageURL) {
@@ -29,6 +35,7 @@ public class Listing {
         this.materialsList = materialsList;
         this.materialsCost = materialsCost;
         this.imageURL = imageURL;
+        this.dateVerbal = convertToDesiredFormat(date);
         
         publisher.addUserListing(this.getInstance());
     }
@@ -85,6 +92,10 @@ public class Listing {
         return pending;
     }
 
+    public String getDateVerbal() {
+        return dateVerbal;
+    }
+
     public void Approve() {
         approved = true;
     }
@@ -99,5 +110,18 @@ public class Listing {
 
     public float getMaterialsCost(){
         return materialsCost;
+    }
+
+    public String convertToDesiredFormat(String dateString) {
+        try {
+            SimpleDateFormat inputFormat = new SimpleDateFormat("M/d/yyyy h:mma");
+            SimpleDateFormat outputFormat = new SimpleDateFormat("MMMM d 'at' h:mma");
+
+            Date date = inputFormat.parse(dateString);
+            return outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

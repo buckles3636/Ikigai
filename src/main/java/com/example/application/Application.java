@@ -100,7 +100,7 @@ public class Application implements AppShellConfigurator {
          ));
 
         listingDataBase.put("chessstrategy", new Listing(userDataBase.get("jameszieper"), "chessstrategy", "8/25/2023 3:00pm", 0, "Chess Strategy", 
-        "In this course, we will teach you how to not only understand the board, but also your opponent.", "Music", false, true,
+        "In this course, we will teach you how to not only understand the board, but also your opponent.", "Gaming", false, true,
         new String[] {"Chess Board", "Partner to Play with"}, 24,
         "https://assetsio.reedpopcdn.com/chess-playing-hand.jpeg?width=848&quality=80&format=jpg&auto=webp"
          ));

@@ -4,11 +4,14 @@ import com.example.application.Application;
 import com.example.application.data.Listing;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasStyle;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
@@ -40,10 +43,16 @@ public class ListingView extends Main implements HasUrlParameter<String> {
         addClassNames(Background.CONTRAST_5, Display.FLEX, FlexDirection.COLUMN, AlignItems.START, Padding.MEDIUM,
                 BorderRadius.LARGE);
 
+//------------------------------------------------------------------------------------------------------------------//
+        HorizontalLayout mainLayout = new HorizontalLayout();
+
+    //--------------------------------------------------------------------------------------------------------------//
+        VerticalLayout left = new VerticalLayout();
+
         Div div = new Div();
         div.addClassNames(Background.CONTRAST, Display.FLEX, AlignItems.CENTER, JustifyContent.CENTER,
                 Margin.Bottom.MEDIUM, Overflow.HIDDEN, BorderRadius.MEDIUM, Width.FULL);
-        div.setHeight("160px");
+        div.setHeight("100%");
 
         Image image = new Image();
         image.setWidth("100%");
@@ -52,29 +61,85 @@ public class ListingView extends Main implements HasUrlParameter<String> {
 
         div.add(image);
 
-        Span header = new Span();
-        //<theme-editor-local-classname>
-        header.addClassName("home-view-card-span-1");
-        header.addClassNames(FontSize.XLARGE, FontWeight.SEMIBOLD);
-        header.setText(l.getTitleString());
+        left.add(div);
 
-        Span subtitle = new Span();
+        Span descriptionTitle = new Span();
         //<theme-editor-local-classname>
-        subtitle.addClassName("home-view-card-span-2");
-        subtitle.addClassNames(FontSize.SMALL, TextColor.SECONDARY);
-        subtitle.setText(l.getPublisher().getFirstName() + " " + l.getPublisher().getLastName());
-
-        Span dateTimeSpan = new Span();
-        //<theme-editor-local-classname>
-        dateTimeSpan.addClassName("home-view-card-span-4");
-        //<theme-editor-local-classname>
-        dateTimeSpan.addClassNames(FontSize.SMALL, TextColor.SECONDARY);
-        dateTimeSpan.setText(l.getDate());
+        descriptionTitle.addClassName("Listing-span-4");
+        descriptionTitle.addClassNames(FontSize.XXXLARGE, FontWeight.BOLD);
+        descriptionTitle.setText("Description:");
 
         Paragraph description = new Paragraph(l.getTextString());
         //<theme-editor-local-classname>
-        description.addClassName("home-view-card-p-1");
+        description.addClassName("Listing-para-1");
         description.addClassName(Margin.Vertical.MEDIUM);
+
+        left.add(descriptionTitle, description);
+
+
+        mainLayout.add(left);
+    //--------------------------------------------------------------------------------------------------------------//
+        VerticalLayout right = new VerticalLayout();
+        right.setPadding(false); // Disable default spacing
+        right.setSpacing(true); // Enable custom spacing between components
+
+        Span header = new Span();
+        //<theme-editor-local-classname>
+        header.addClassName("Listing-span-2");
+        header.addClassNames(FontSize.XXXLARGE, FontWeight.BOLD);
+        header.setText(l.getTitleString());
+
+        right.add(header);
+
+        Span subtitle = new Span();
+        //<theme-editor-local-classname>
+        subtitle.addClassName("Listing-span-1");
+        subtitle.addClassNames(FontSize.XLARGE, TextColor.SECONDARY);
+        subtitle.setText("Hosted By: " + l.getPublisher().getFirstName() + " " + l.getPublisher().getLastName());
+
+        right.add(subtitle);
+
+        Span dateTimeSpan = new Span();
+        //<theme-editor-local-classname>
+        dateTimeSpan.addClassName("Listing-span-3");
+        //<theme-editor-local-classname>
+        dateTimeSpan.addClassNames(FontSize.XXLARGE, TextColor.SECONDARY);
+        dateTimeSpan.setText(l.getDateVerbal());
+
+        right.add(dateTimeSpan);
+
+        if(Application.currentUser.getAcceptedListings().contains(l)){
+
+        Button accepted = new Button("Accepted");
+        //<theme-editor-local-classname>
+        accepted.addClassName("listing-view-button-1");
+        accepted.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        accepted.setWidth("300px");
+        accepted.setHeight("50px");
+
+        right.add(accepted);
+
+        }
+        else{
+        Button rsvp = new Button("RSVP");
+        rsvp.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        rsvp.setWidth("300px");
+        rsvp.setHeight("50px");
+
+        rsvp.addClickListener(e -> {
+            // Approves and Pushes listing
+            Application.currentUser.acceptListing(l);
+
+            // Refresh the page
+            getUI().ifPresent(ui -> ui.getPage().reload());
+        });
+
+        right.add(rsvp);
+        }
+
+        mainLayout.add(right);
+
+    //---------------------------------------------------------------------------------------------------------//
 
         Span badge = new Span();
         //<theme-editor-local-classname>
@@ -83,6 +148,6 @@ public class ListingView extends Main implements HasUrlParameter<String> {
 
         badge.setText(l.getTag());
 
-        add(div, header, subtitle, dateTimeSpan, description, badge);
+        add(mainLayout);
     }
 }
