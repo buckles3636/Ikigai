@@ -60,14 +60,7 @@ public class Application implements AppShellConfigurator {
 
         userDataBase.put("jameszieper", new User("James", "Zieper", "Denver", "jzieper@xylime.com","nw", 19,
         "https://s3.amazonaws.com/s3images.classcreator.com/17494/001/3768515/7E73E689-90B1-1C17-D1BE730E2071F476.jpg"));
-
-
-
-        listingDataBase.put("tallhatclass", new Listing(userDataBase.get("dougdimmadome"), "tallhatclass", "8/22/2023 2:00am", 0, "Tall Hat Class",
-         "Have you ever wanted to be cool? Well now you can by properly learning how to wear a tall hat!", "Style", false, true,
-         new String[] {"tall hat", "swag"}, 1800,
-         "https://bloximages.chicago2.vip.townnews.com/trib.com/content/tncms/assets/v3/editorial/2/f3/2f3df6dc-ede3-513d-85a0-29a3870896a0/5e5d93b36ac1f.preview.jpg?crop=732%2C384%2C0%2C508&resize=732%2C384&order=crop%2Cresize"
-         ));
+    
         
         listingDataBase.put("flytyingclass", new Listing(userDataBase.get("peterbuckley"), "flytyingclass", "8/15/2023 3:00pm", 0, "Fly Tying Class",
         "Learn about basic fly tying materials/processes and tie your very own frenchie nymph! ", "Outdoors", true, false,
@@ -104,6 +97,12 @@ public class Application implements AppShellConfigurator {
         new String[] {"Chess Board", "Partner to Play with"}, 24,
         "https://assetsio.reedpopcdn.com/chess-playing-hand.jpeg?width=848&quality=80&format=jpg&auto=webp"
          ));
+
+        /*listingDataBase.put("tallhatclass", new Listing(userDataBase.get("dougdimmadome"), "tallhatclass", "8/22/2023 2:00am", 0, "Tall Hat Class",
+         "Have you ever wanted to be cool? Well now you can by properly learning how to wear a tall hat!", "Style", false, true,
+         new String[] {"tall hat", "swag"}, 1800,
+         "https://bloximages.chicago2.vip.townnews.com/trib.com/content/tncms/assets/v3/editorial/2/f3/2f3df6dc-ede3-513d-85a0-29a3870896a0/5e5d93b36ac1f.preview.jpg?crop=732%2C384%2C0%2C508&resize=732%2C384&order=crop%2Cresize"
+         ));*/
 
         currentUser = userDataBase.get("peterbuckley");
         admin = true;
